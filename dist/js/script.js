@@ -1,5 +1,7 @@
 // load service worker
 
+
+
 // based on code from https://codelabs.developers.google.com/codelabs/workbox-indexeddb/index.html
 const dbName = 'dashboardr',
     tableName = 'events',

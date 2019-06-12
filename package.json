@@ -1,0 +1,24 @@
+{
+  "name": "idb_tester",
+  "version": "1.0.0",
+  "description": "This is a simple project to learn about Index DB & its capabilities on iOS",
+  "main": "index.html",
+  "dependencies": {
+    "gh-pages": "^2.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1", 
+    "deploy": "gh-pages -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Q6ri1990/IndexDB_Tester.git"
+  },
+  "author": "Q6ri1990",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Q6ri1990/IndexDB_Tester/issues"
+  },
+  "homepage": "https://Q6ri1990.github,io/IndexDB_Tester"
+}
