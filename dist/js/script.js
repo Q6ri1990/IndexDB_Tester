@@ -10,9 +10,11 @@ const dbName = 'dashboardr',
 function isIndexDBSupported() {
     if (!('indexedDB' in window)) {
         console.log("Not Supported!!");
+        alert("IDB Not Supported!!");
         return false;
     }
     console.log("Supported");
+    alert("IDB Supported");
     return true;
 }
 
@@ -20,7 +22,9 @@ function isIndexDBSupported() {
 function createIndexedDB() {
     if (isIndexDBSupported()) {
         return idb.open(dbName, version, function (upgradeDb) {
+            alert("Creating DB "+dbName);
             if (!upgradeDb.objectStoreNames.contains(tableName)) {
+                alert("upgrading table "+tableName);
                 const eventsOS = upgradeDb.createObjectStore(tableName, {
                     keyPath: 'id'
                 });
