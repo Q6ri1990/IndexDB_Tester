@@ -1,0 +1,16 @@
+{"dir" : "ltr",
+    "lang" : "en",
+    "name" : "Index DB Tester",
+    "scope" : "/IndexDB_Tester/",
+    "display" : "browser",
+    "start_url" : "https://q6ri1990.github.io/IndexDB_Tester/",
+    "short_name" : "Index DB Tester",
+    "theme_color" : "transparent",
+    "description" : "",
+    "orientation" : "any",
+    "background_color" : "transparent",
+    "related_applications" : "",
+    "prefer_related_applications" : "false",
+    "generated" : "true",
+    "icons" : [
+    ]}

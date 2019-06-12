@@ -1,23 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Index DB Tester</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="/manifest.json">
 </head>
+
 <body>
     <h1>This is a test project to see how I can use index DB on an iOS device</h1>
 
 
     <button onclick="install()">
         Install
-      </button>
-      
+    </button>
+
+    <script>
+        // This is the service worker with the Cache-first network
+
+        // Add this below content to your HTML page, or add the js file to your page at the very top to register service worker
+
+        // Check compatibility for the browser we're running this in
+        if ("serviceWorker" in navigator) {
+            if (navigator.serviceWorker.controller) {
+                console.log("[PWA Builder] active service worker found, no need to register");
+                alert("[PWA Builder] active service worker found, no need to register");
+            } else {
+                // Register the service worker
+                navigator.serviceWorker
+                    .register("sw.js", {
+                        scope: "./"
+                    })
+                    .then(function (reg) {
+                        console.log("[PWA Builder] Service worker has been registered for scope: " + reg.scope);
+                        alert("[PWA Builder] Service worker has been registered for scope: " + reg.scope);
+
+                    });
+            }
+        }
+    </script>
     <script src="js/idb-promised.js"></script>
     <script src="js/script.js"></script>
     <script src="js/installPWA.js"></script>
-    
 </body>
+
 </html>
