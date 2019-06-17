@@ -2,7 +2,7 @@
     "lang" : "en",
     "name" : "Index DB Tester",
     "scope" : "/IndexDB_Tester/",
-    "display" : "browser",
+    "display" : "standalone",
     "start_url" : "https://q6ri1990.github.io/IndexDB_Tester/",
     "short_name" : "Index DB Tester",
     "theme_color" : "transparent",
