@@ -1,3 +1,16 @@
 #log{
     background: lightgray;
 }
+
+table{
+    width: 100%;;
+}
+td{
+    border-block: inherit;
+    border-color: black;
+    border-style: solid;
+}
+
+.inputs{
+    background: grey;
+}
