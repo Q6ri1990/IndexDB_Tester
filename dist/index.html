@@ -7,18 +7,29 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Index DB Tester</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="manifest" href="/manifest.json">
+    <link rel="manifest" href="manifest.json">
 </head>
 
 <body>
     <h1>This is a test project to see how I can use index DB on an iOS device</h1>
 
+    <table id="table">
+        <tr>
+            <th>ID</th> <th>name</th>
+        </tr>
+    </table>
 
-    <button onclick="install()">
-        Install
-    </button>
+
+    <div class="inputs">
+        <h3>Test Me!</h3>
+        <label labelfor="name">
+        please enter your name<input type="text" name="name" id="name" placeholder="name">  </label>
+        <input type="button" value="Save" onclick="saveName()">
+    </div>
+
 
     <script>
+        
         // This is the service worker with the Cache-first network
 
         // Add this below content to your HTML page, or add the js file to your page at the very top to register service worker
@@ -31,7 +42,7 @@
             } else {
                 // Register the service worker
                 navigator.serviceWorker
-                    .register("sw.js", {
+                    .register("/sw.js", {
                         scope: "./"
                     })
                     .then(function (reg) {

@@ -13,4 +13,14 @@
     "prefer_related_applications" : "false",
     "generated" : "true",
     "icons" : [
+        {
+            "src": "/images/logo.png",
+            "sizes": "230×230",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/logo-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png" 
+        }
     ]}
