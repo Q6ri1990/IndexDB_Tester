@@ -1,8 +1,12 @@
 // This is the service worker with the Cache-first network
 
-const CACHE = "idb-test-precache";
+const CACHE = "idb-test-precache-v2";
 const precacheFiles = [
   /* Add an array of files to precache for your app */
+  'index.html',
+  'css/style.css',
+  'js/idb-promised.js',
+  'script.js'
 ];
 
 self.addEventListener("install", function (event) {
