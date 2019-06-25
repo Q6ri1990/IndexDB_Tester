@@ -13,28 +13,31 @@
 <body>
     <h1>This is a test project to see how I can use index DB on an iOS device</h1>
 
-    <table id="table">
-        <tr>
-            <th>ID</th> <th>name</th>
-        </tr>
-    </table>
-
-
-    <div class="inputs">
-        <h3>Test Me!</h3>
-        <label labelfor="name">
-        please enter your name<input type="text" name="name" id="name" placeholder="name">  </label>
-        <input type="button" value="Save" onclick="saveName()">
+    <div class="form-field">
+        <div class="title">
+            <h1>Test Me!</h1>
+          </div>
+        <label labelfor="name" class="text">Name
+        <input type="text" name="name" id="name" placeholder="Please enter your name">  </label>
+        <button value="Save" onclick="saveName()" class="button-field" id="btnSignin">Save</button>
     </div>
 
 
-    <div class="find">
-        <h3>Find Something</h3>
-        <label labelfor="id"><input type="number" id="id"></label>
-        <button value="Find" value="Find" onclick="getName()">Find</button>
+    <div class="form-field">
+            <div class="title">
+                    <h1>Find Something</h1>
+                  </div>
+        <label labelfor="id" class="text">ID<input type="number" id="id" placeholder="Please enter an ID"></label>
+        <button value="Find" value="Find" onclick="getName()" class="button-field" id="btnSignin">Find</button>
         <h4 id="result"></h4>
     </div>
 
+    <table id="table" class="flat-table flat-table-1">
+        <tr>
+            <th>ID</th> <th>Name</th>
+        </tr>
+        <tbody id ="tbody"></tbody>
+    </table>
     <script>
         
         // This is the service worker with the Cache-first network
