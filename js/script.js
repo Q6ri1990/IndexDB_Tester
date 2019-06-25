@@ -180,3 +180,30 @@ function saveName(){
     saveEventDataLocally([new testData(id, name)]);
     populateTable();
 }
+
+
+function getName(){
+    let id = document.getElementById("id").value;
+    let label = document.getElementById("result");
+    var name = findById(id).then(item => {
+        if(item ===null|| item === undefined){
+            label.innerText="Oops";
+        }else{
+            label.innerText="Your name is "+item.name;
+        }
+    }
+    ).catch(e=>console.log(e));
+
+
+}
+
+
+function findById(id){
+    if(isIndexDBSupported()){
+        return dbPromise.then(function(db) {
+            var tx = db.transaction(tableName, 'readonly');
+            var store = tx.objectStore(tableName);
+            return store.get(id);
+          });
+    }
+}
