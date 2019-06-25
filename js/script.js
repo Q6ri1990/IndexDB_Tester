@@ -1,11 +1,11 @@
 
 // based on code from https://codelabs.developers.google.com/codelabs/workbox-indexeddb/index.html
 // idb promised github https://github.com/jakearchibald/idb
-const dbName = 'dashboard',
-    tableName = 'events',
+const dbName = 'Names',
+    tableName = 'Names',
     version = 1;
 
-
+// this is an object to simplify the data storage
     class testData{
         constructor(id, name)
         {
@@ -15,7 +15,7 @@ const dbName = 'dashboard',
     
     
     }
-
+// check if the indexDB is supported or not
 function isIndexDBSupported() {
     if (!('indexedDB' in window)) {
         console.log("Not Supported!!");
@@ -23,27 +23,9 @@ function isIndexDBSupported() {
         return false;
     }
     console.log("Supported");
-    alert("IDB Supported");
+    //alert("IDB Supported");
     return true;
 }
-/*
-// create the database 
-const db = openDB(dbName, version, {
-    upgrade(db, oldVersion, newVersion, transaction) {
-      // …
-      console.log("upgrade DB");
-    },
-    blocked() {
-      // …
-    },
-    blocking() {
-      // …
-    }
-  });*/
-
-
-
-
 
 // create the database
 function createIndexedDB() {
@@ -60,71 +42,10 @@ function createIndexedDB() {
     }
 }
 
-// create the promis object that will be used by the application
+// create the promise object that will be used by the application
 const dbPromise = createIndexedDB();
-/*
 
-
-// save the data that we want into the Local IDB
-function saveEventDataLocally(records) {
-    if (isIndexDBSupported()) {
-        return dbPromise.then(db => {
-            const tx = db.transaction(tableName, 'readwrite');
-            const store = tx.objectStore(tableName);
-            return Promise.all(records.map(record => store.put(record)))
-                .catch(() => {
-                    tx.abort();
-                    throw Error('Events were not added to the store');
-                });
-        });
-    }
-}
-
-function loadContentNetworkFirst() {
-    getServerData()
-        .then(dataFromNetwork => {
-            updateUI(dataFromNetwork);
-            saveEventDataLocally(dataFromNetwork)
-                .then(() => {
-                    setLastUpdated(new Date());
-                    messageDataSaved();
-                }).catch(err => {
-                    messageSaveError();
-                    console.warn(err);
-                });
-        }).catch(err => {
-            console.log('Network requests have failed, this is expected if offline');
-            getAllData()
-                .then(offlineData => {
-                    if (!offlineData.length) {
-                        messageNoData();
-                    } else {
-                        messageOffline();
-                        updateUI(offlineData);
-                    }
-                });
-        });
-}
-
-function addAndPostEvent() {
-    // ...
-    // TODO - save event data locally
-    saveEventDataLocally([data]);
-    // ...
-}
-
-function getAllData() {
-    if (isIndexDBSupported()) {
-        return dbPromise.then(db => {
-            const tx = db.transaction(tableName, 'readonly');
-            const store = tx.objectStore(tableName);
-            return store.getAll();
-        });
-    }
-}
-*/
-var array = [new testData('1','test'), new testData('2','ali')];
-
+// functions that utilize the indexDB
 function saveEventDataLocally(records) {
     if (isIndexDBSupported()) {
         return dbPromise.then(db => {
@@ -153,10 +74,9 @@ if(isIndexDBSupported()){
     return data;
 }
 
-saveEventDataLocally(array);
-
 function populateTable(){
-    var table = document.getElementById('table');
+    var table = document.getElementById('tbody');
+    table.innerHTML='';// i know this is not a clean way of doing it but it works
     getAllData().then(records =>{
         records.forEach(element => {
             let row = table.insertRow();
@@ -168,10 +88,8 @@ function populateTable(){
     });
 }
 
-populateTable();
 
-function saveName(){
-    
+function saveName(){    
     let name = document.getElementById("name").value;
     let id = Math.random();
 
@@ -207,3 +125,9 @@ function findById(id){
           });
     }
 }
+
+
+// run the code
+var array = [new testData('1','Test'), new testData('2','Ali')];
+saveEventDataLocally(array);
+populateTable();
